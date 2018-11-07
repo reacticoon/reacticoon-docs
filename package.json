@@ -13,15 +13,16 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "rm -rf .cache && gatsby develop",
     "format": "prettier --write '**/*.js'"
   },
   "dependencies": {
     "@material-ui/core": "^3.1.0",
     "@material-ui/icons": "^3.0.1",
     "classnames": "2.2.6",
-    "gatsby": "2.0.6",
+    "gatsby": "2.0.39",
     "gatsby-plugin-canonical-urls": "2.0.5",
+    "gatsby-plugin-favicon": "3.1.4",
     "gatsby-plugin-google-analytics": "2.0.6",
     "gatsby-plugin-manifest": "2.0.3",
     "gatsby-plugin-offline": "2.0.5",

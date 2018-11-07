@@ -3,18 +3,27 @@ import React from 'react';
 import { getGithubUrl } from '../../modules/config';
 import sectionListDocs from '../../../content/docs/nav.yml';
 
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import DocLink from 'components/DocLink';
+import GithubIcon from 'components/svg/GithubIcon';
 import FooterBar from '../FooterBar';
 import ExternalLink from '../ExternalLink';
 
 const styles = theme => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'space-around',
+  },
+  row: {
+
+  },
   link: {
     color: 'white',
     textTransform: 'uppercase',
     fontSize: '14pt',
     letterSpacing: '0.1em',
+    textDecoration: 'none',
   },
   menu: {},
   menuTitle: {
@@ -38,19 +47,37 @@ const styles = theme => ({
   menuItemLink: {
     color: 'white',
 
+  },
+  rightArea: {
+    textAlign: 'right',
+  },
+  helpUs: {
+    display: 'flex',
+    alignItems: 'center',
+    fill: theme.colors.white,
+
     '&:hover': {
       color: theme.colors.brand,
+      fill: theme.colors.brand,
+    },
+    '& svg': {
+      marginRight: theme.spacing.unit,
     },
   },
-  help: {
-    textAlign: 'right',
+  icon: {
+    height: 48,
+    width: 48,
+    fill: 'inherit',
+    '&:hover': {
+      fill: 'inherit',
+    },
   },
 });
 
 const IndexFooterBar = ({ classes }) => (
   <FooterBar>
-    <Grid container>
-      <Grid item sm={4}>
+    <div className={classes.root}>
+      <div className={classes.row}>
         {/* Menu - Links - Docs */}
         <div className={classes.menu}>
           <span className={classes.menuTitle}>Docs</span>
@@ -72,14 +99,15 @@ const IndexFooterBar = ({ classes }) => (
             })}
           </ul>
         </div>
-      </Grid>
+      </div>
 
-      <Grid item sm={4} className={classes.help}>
-        <ExternalLink href={getGithubUrl()} classes={{ root: classes.link }}>
+      <div className={classNames(classes.row, classes.rightArea)}>
+        <ExternalLink href={getGithubUrl()} classes={{ root: classNames(classes.helpUs, classes.link) }}>
+          <GithubIcon className={classes.icon} />
           Help us!
         </ExternalLink>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   </FooterBar>
 );
 

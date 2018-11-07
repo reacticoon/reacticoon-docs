@@ -5,19 +5,24 @@
 // api, etc
 //
 
-import metadata from '../../../metadata'
+import metadata from '../../../metadata';
 
-export const getWebsiteTitle = () => metadata.websiteName
+export const getWebsiteTitle = () => metadata.websiteName;
 
-export const getWebsiteUrl = () => metadata.websiteUrl
+export const getWebsiteUrl = () => metadata.websiteUrl;
 
-export const getWebsiteDescription = () => metadata.description
+export const getWebsiteDescription = () => metadata.description;
 
-export const isProduction = () => process.env.NODE_ENV === 'production'
+export const getGithubRepositoryUrl = () => metadata.githubRepositoryUrl;
 
-export const getGithubUrl = () => metadata.githubUrl
+export const isProduction = () => process.env.NODE_ENV === 'production';
 
-export const getTwitterUsername = () => metadata.twitterUsername
+export const getGithubUrl = () => metadata.githubUrl;
+
+export const getTwitterUsername = () => metadata.twitterUsername;
 
 export const getTwitterUrl = () =>
-  `https://twitter.com/${getTwitterUsername()}`
+  `https://twitter.com/${getTwitterUsername()}`;
+
+export const generateDocGithubFileUrl = path =>
+  `${getGithubRepositoryUrl()}/blob/master/content/${path}`;

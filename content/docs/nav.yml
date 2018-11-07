@@ -5,3 +5,7 @@
         title: Getting Started
       - id: reacticoon-ecosystem
         title: The Reacticoon ecosystem
+      - id: reacticoon-create-project
+        title: Create a new project
+      - id: reacticoon-project-architecture
+        title: Project architecture

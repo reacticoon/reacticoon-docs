@@ -11,6 +11,43 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-home-example-code',
     },
+    // Generate favicon
+    // https://github.com/Creatiwity/gatsby-plugin-favicon
+    //
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        // TODO: The recommended size for the file is: 1500x1500px.
+        logo: "./assets/favicon.png",
+  
+        // WebApp Manifest Configuration
+        appName: null, // Inferred with your package.json
+        appDescription: null,
+        developerName: null,
+        developerURL: null,
+        dir: 'auto',
+        lang: 'en-US',
+        background: '#282c34',
+        theme_color: '#61dafb',
+        display: 'standalone',
+        orientation: 'any',
+        start_url: '/?homescreen=1',
+        version: '1.0',
+  
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      },
+    },
     // read markdown files and parse them to be used as posts.
     // https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/adding-markdown-pages.md
     {

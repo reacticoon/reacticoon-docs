@@ -3,6 +3,7 @@ const metadata = {
     websiteUrl: 'https://reacticoon.io', // TODO:
     websiteName: 'Reacticoon',
     websiteShortName: 'Reacticoon',
+    githubUrl: 'https://github.com/reacticoon',
     githubRepositoryUrl: 'https://github.com/reacticoon/reacticoon-docs',
     backgroundColor: '#f9f9f9', // TODO
     themeColor: '#f44336',  // TODO
@@ -10,7 +11,9 @@ const metadata = {
     twitterUsername: '', // TODO: twitter username, without the @
     analytics: {
         trackingId: '' // TODO:
-    }
+    },
+    description: 'A JavaScript ecosystem for building React and Redux projects',
+    keywords: 'Javascript,React,Redux',
 };
 
 module.exports = metadata

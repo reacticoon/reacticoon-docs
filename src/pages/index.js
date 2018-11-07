@@ -11,7 +11,7 @@ import Layout from '../components/layout';
 
 const styles = theme => ({
   header: {
-    backgroundColor: theme.colors.lighter,
+    backgroundColor: theme.colors.dark,
     [theme.breakpoints.up('sm')]: {
       paddingTop: '60px',
       paddingBottom: '70px',
@@ -64,6 +64,8 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5,
   },
   marketingComponent: {
     marginLeft: 40,
@@ -73,13 +75,16 @@ const styles = theme => ({
     color: '#6d6d6d',
     paddingTop: '0',
     fontWeight: '300',
-    fontSize: '20px',
+    fontSize: '24px',
   },
   marketingComponentContent: {
     marginTop: theme.spacing.unit * 2,
-    fontSize: 17,
-    lineHeight: '1.7',
     maxWidth: '42em',
+
+    '& p': {
+      fontSize: 17,
+      lineHeight: '1.7',
+    },
 
     '& a': {
       ...theme.app.link,
@@ -235,7 +240,7 @@ class IndexPage extends React.Component {
           </Typography>
 
           <Typography className={classes.brandDescription}>
-            A JavaScript ecosystem for React and Redux
+            A JavaScript ecosystem for building React and Redux projects
           </Typography>
 
           <div className={classes.brandActions}>
