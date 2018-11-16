@@ -3,13 +3,15 @@ import React from 'react';
 
 import { getWebsiteDescription } from '../../modules/config';
 
+// https://www.gatsbyjs.org/docs/add-page-metadata/
 const TitleAndMetaTags = ({ title, ogDescription, ogUrl }) => {
   return (
     <Helmet title={title}>
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
       {ogUrl && <meta property="og:url" content={ogUrl} />}
-      <meta property="og:image" content="/logo-og.png" />
+      {/* TODO: add logo image */}
+      {/* <meta property="og:image" content="/logo-og.png" /> */}
       <meta
         property="og:description"
         content={ogDescription || getWebsiteDescription()}

@@ -92,19 +92,18 @@ module.exports = {
 
           // https://github.com/raae/gatsby-remark-oembed
           // list of embeded: https://oembed.com/
-          {
-            resolve: `gatsby-remark-oembed`,
-            options: {
-              providers: {
-                // Important to exclude providers
-                // that adds js to the page.
-                // If you do not need them.
-                exclude: [
-                  //"Reddit"
-                ],
-              },
-            },
-          },
+          // disabled since not used for now + add too many third parties
+          // {
+          //   resolve: `gatsby-remark-oembed`,
+          //   options: {
+          //     providers: {
+          //       include: [
+          //         //"Twitter"
+          //         //"YouTube"
+          //       ],
+          //     },
+          //   },
+          // },
 
           // Processes images in markdown so they can be used in the production build.
           // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images
@@ -261,6 +260,10 @@ module.exports = {
     // https://www.npmjs.com/package/gatsby-plugin-sitemap
     {
       resolve: `gatsby-plugin-sitemap`,
+    },
+    // https://www.gatsbyjs.org/docs/add-page-metadata/
+    {
+      resolve: `gatsby-plugin-react-helmet`,
     },
   ],
 };
