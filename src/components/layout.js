@@ -11,6 +11,10 @@ import IndexFooterBar from './IndexFooterBar';
 const styles = theme => ({
   root: {
     paddingTop: theme.app.header.height,
+
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.app.header.mobileHeight,
+    },
     // paddingLeft: theme.spacing.unit * 2,
     // paddingRight: theme.spacing.unit * 2,
     // [theme.breakpoints.up('sm')]: {

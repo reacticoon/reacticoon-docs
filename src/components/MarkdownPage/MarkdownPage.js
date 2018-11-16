@@ -153,11 +153,26 @@ const styles = theme => ({
       borderLeft: '1px solid #ececec',
       marginLeft: '80px',
     },
+    [theme.breakpoints.down('sm')]: {
+      flex: '0 0 300px',
+      '-webkit-flex': '0 0 300px',
+      borderLeft: '1px solid #ececec',
+      marginLeft: '80px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
   },
   footer: {
     maxWidth: 1260,
     [theme.breakpoints.up('md')]: {
-      width: '90%',
+      width: 'calc(100vw - 360px)', // minus sidebar menu HOC
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: 'calc(100vw - 320px)', // minus sidebar menu HOC
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '100%', // we do not display sidebar
     },
   },
 });

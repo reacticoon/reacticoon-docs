@@ -35,6 +35,7 @@ const theme = createMuiTheme({
   app: {
     header: {
       height: 60,
+      mobileHeight: 56,
     },
     link: {
       lineHeight: 2,

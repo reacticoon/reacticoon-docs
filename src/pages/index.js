@@ -12,9 +12,13 @@ import Layout from '../components/layout';
 const styles = theme => ({
   header: {
     backgroundColor: theme.colors.dark,
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: '60px',
-      paddingBottom: '70px',
+    [theme.breakpoints.up('md')]: {
+      paddingTop: 60,
+      paddingBottom: 70,
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: 30,
+      paddingBottom: 40,
     },
     color: 'white',
     textAlign: 'center',
@@ -59,6 +63,12 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     minHeight: 400,
+
+    [theme.breakpoints.down('sm')]: {
+      width: '90%',
+      paddingLeft: theme.spacing.unit,
+      paddingRight: theme.spacing.unit,
+    },
   },
   marketing: {
     display: 'flex',
@@ -66,9 +76,15 @@ const styles = theme => ({
     justifyContent: 'center',
     marginTop: theme.spacing.unit * 5,
     marginBottom: theme.spacing.unit * 5,
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
   },
   marketingComponent: {
-    marginLeft: 40,
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: 40,
+    }
   },
   marketingComponentTitle: {
     marginBottom: '20px',
@@ -94,6 +110,10 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-around',
     paddingTop: theme.spacing.unit * 4,
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
 
     '& section': {
       maxWidth: 600,
@@ -140,6 +160,10 @@ const styles = theme => ({
   examplesContent: {
     display: 'flex',
     flexDirection: 'row',
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
   },
   examplesContentText: {
     display: 'flex',
@@ -150,8 +174,11 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'stretch',
     flex: '0 0 47%',
-    marginLeft: theme.spacing.unit * 6,
     width: '100%',
+
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: theme.spacing.unit * 6,
+    },
 
     '& pre': {
       width: '100%',

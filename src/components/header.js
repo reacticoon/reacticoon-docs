@@ -11,126 +11,153 @@ import { Link } from 'gatsby';
 import ReacticoonLogo from './ReacticoonLogo';
 
 const styles = theme => ({
-    appBar: {
-        color: '#fff'
+  appBar: {
+    color: '#fff',
+  },
+  toolbar: {
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: 1260,
+      width: '90%',
+      paddingLeft: 20,
+      paddingRight: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
-    toolbar: {
-        [theme.breakpoints.up('sm')]: {
-            width: '90%'
-        },
-        [theme.breakpoints.up('md')]: {
-            maxWidth: 1260
-        },
-        paddingLeft: 20,
-        paddingRight: 20,
-        marginLeft: 'auto',
-        marginRight: 'auto'
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: theme.spacing.unit * 2,
+      paddingRight: theme.spacing.unit * 2,
     },
-    grow: {
-        flexGrow: 1
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  rootLink: {
+    display: 'flex',
+    textDecoration: 'none',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.secondary.main,
+  },
+  rootLinkLogo: {
+    display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: theme.spacing.unit * 2, // padding with search
     },
-    rootLink: {
-        display: 'flex',
-        textDecoration: 'none',
-        alignItems: 'center',
-        color: theme.palette.secondary.main
+    [theme.breakpoints.up('sm')]: {
+      paddingRight: theme.spacing.unit * 2, // padding with rootLinkName
     },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25)
-        },
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing.unit,
-            width: 'auto'
-        }
+  },
+  rootLinkName: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
     },
-    searchIcon: {
-        width: theme.spacing.unit * 9,
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    inputRoot: {
-        color: 'inherit',
-        width: '100%'
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing.unit,
+      width: 'auto',
     },
-    inputInput: {
-        paddingTop: theme.spacing.unit,
-        paddingRight: theme.spacing.unit,
-        paddingBottom: theme.spacing.unit,
-        paddingLeft: theme.spacing.unit * 10,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: 120,
-            '&:focus': {
-                width: 200
-            }
-        }
+  },
+  searchIcon: {
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing.unit * 9,
     },
-    link: {
-        color: 'white',
-        textDecoration: 'none',
-        paddingLeft: theme.spacing.unit * 2,
+    [theme.breakpoints.down('sm')]: {
+      width: theme.spacing.unit * 4,
+    },
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+    width: '100%',
+  },
+  inputInput: {
+    paddingTop: theme.spacing.unit,
+    paddingRight: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing.unit * 10,
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing.unit * 4,
+    },
+  },
+  link: {
+    color: 'white',
+    textDecoration: 'none',
+    paddingLeft: theme.spacing.unit * 2,
 
-        '&:hover': {
-            color: theme.palette.secondary.main
-        }
-    }
+    '&:hover': {
+      color: theme.palette.secondary.main,
+    },
+  },
 });
 
 const Header = ({ siteTitle, classes }) => (
-    <AppBar position="fixed" classes={{ root: classes.appBar }}>
-        <Toolbar classes={{ root: classes.toolbar }}>
-            <Typography variant="h6" color="inherit">
-                <Link to="/" className={classes.rootLink}>
-                    <ReacticoonLogo height={50} />
-                    {siteTitle}
-                </Link>
-            </Typography>
+  <AppBar position="fixed" classes={{ root: classes.appBar }}>
+    <Toolbar classes={{ root: classes.toolbar }}>
+      <Typography variant="h6" color="inherit">
+        <Link to="/" className={classes.rootLink}>
+          <span className={classes.rootLinkLogo}>
+            <ReacticoonLogo height={40} />
+          </span>
+          <span className={classes.rootLinkName}>{siteTitle}</span>
+        </Link>
+      </Typography>
 
-            <div className={classes.grow} />
+      <div className={classes.grow} />
 
-            <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                    <SearchIcon />
-                </div>
-                <Input
-                    placeholder="Search docs…"
-                    disableUnderline
-                    classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput
-                    }}
-                />
-            </div>
+      <div className={classes.search}>
+        <div className={classes.searchIcon}>
+          <SearchIcon />
+        </div>
+        <Input
+          placeholder="Search docs…"
+          disableUnderline
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+        />
+      </div>
 
-            <div className={classes.rightLinks}>
-                {/* TODO: create versions page */}
-                <Link to="/versions" className={classes.link}>
-                    {/* TODO: generate */}
-                    v0.0.1
-                </Link>
+      <div className={classes.rightLinks}>
+        {/* TODO: create versions page */}
+        <Link to="/versions" className={classes.link}>
+          {/* TODO: generate */}
+          v0.0.1
+        </Link>
 
-                <a
-                    href="https://github.com/reacticoon"
-                    className={classes.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Github
-                </a>
-            </div>
-        </Toolbar>
-    </AppBar>
+        <a
+          href="https://github.com/reacticoon"
+          className={classes.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
+      </div>
+    </Toolbar>
+  </AppBar>
 );
 
 export default withStyles(styles)(Header);

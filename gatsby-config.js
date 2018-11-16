@@ -11,43 +11,6 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-home-example-code',
     },
-    // Generate favicon
-    // https://github.com/Creatiwity/gatsby-plugin-favicon
-    //
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        // TODO: The recommended size for the file is: 1500x1500px.
-        logo: './assets/favicon.png',
-
-        // WebApp Manifest Configuration
-        appName: null, // Inferred with your package.json
-        appDescription: null,
-        developerName: null,
-        developerURL: null,
-        dir: 'auto',
-        lang: 'en-US',
-        background: '#282c34',
-        theme_color: '#61dafb',
-        display: 'standalone',
-        orientation: 'any',
-        start_url: '/?homescreen=1',
-        version: '1.0',
-
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false,
-        },
-      },
-    },
     // read markdown files and parse them to be used as posts.
     // https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/adding-markdown-pages.md
     {
@@ -212,12 +175,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `${metadata.websiteName}`,
-        short_name: `${metadata.websiteShortName}`,
+        name: metadata.websiteName,
+        short_name: metadata.websiteShortName,
         start_url: `/`,
-        background_color: `${metadata.backgroundColor}`,
-        theme_color: `${metadata.themeColor}`,
+        background_color: metadata.backgroundColor,
+        theme_color: metadata.themeColor,
         display: `standalone`, // minimal-ui
+        version: metadata.websiteVersion,
         icons: [
           // Everything in /static will be copied to an equivalent
           // directory in /public during development and build, so
@@ -234,6 +198,46 @@ module.exports = {
             type: 'image/png',
           },
         ],
+      },
+    },
+    // Generate favicon
+    // https://github.com/Creatiwity/gatsby-plugin-favicon
+    //
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        // TODO: The recommended size for the file is: 1500x1500px.
+        logo: './assets/favicon.png',
+
+        // WebApp Manifest Configuration
+        appName: metadata.short_name,
+        name: metadata.websiteName,
+        short_name: metadata.websiteShortName,
+        appDescription: metadata.description,
+        developerName: null,
+        developerURL: null,
+        dir: 'auto',
+        lang: 'en-US',
+        background: metadata.backgroundColor,
+        background_color: metadata.backgroundColor,
+        theme_color: metadata.themeColor,
+        display: 'standalone', // minimal-ui
+        orientation: 'any',
+        start_url: '/?homescreen=1',
+        version: metadata.websiteVersion,
+
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
+          yandex: false,
+          windows: false,
+        },
       },
     },
     // This plugin generates a service worker and AppShell
