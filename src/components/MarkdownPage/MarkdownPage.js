@@ -164,6 +164,7 @@ const styles = theme => ({
     },
   },
   footer: {
+    // Note: same as temapltes/docs.js#indexFooterBar_root style
     maxWidth: 1260,
     [theme.breakpoints.up('md')]: {
       width: 'calc(100vw - 360px)', // minus sidebar menu HOC

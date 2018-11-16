@@ -172,6 +172,8 @@ module.exports = {
     // This plugin takes your configuration and generates a web manifest file so our website can
     // be added to an Android homescreen
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-manifest
+    // Note: do not use gatsby-plugin-favicon: https://github.com/Creatiwity/gatsby-plugin-favicon/issues/20
+    // Learn more about manifest: https://developer.mozilla.org/en-US/docs/Web/Manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -180,64 +182,10 @@ module.exports = {
         start_url: `/`,
         background_color: metadata.backgroundColor,
         theme_color: metadata.themeColor,
-        display: `standalone`, // minimal-ui
+        display: `standalone`, // minimal-ui / standalone
         version: metadata.websiteVersion,
-        icons: [
-          // Everything in /static will be copied to an equivalent
-          // directory in /public during development and build, so
-          // assuming your favicons are in /static/favicons,
-          // you can reference them here
-          {
-            src: '/icons/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/icons/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
-      },
-    },
-    // Generate favicon
-    // https://github.com/Creatiwity/gatsby-plugin-favicon
-    //
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
         // TODO: The recommended size for the file is: 1500x1500px.
-        logo: './assets/favicon.png',
-
-        // WebApp Manifest Configuration
-        appName: metadata.short_name,
-        name: metadata.websiteName,
-        short_name: metadata.websiteShortName,
-        appDescription: metadata.description,
-        developerName: null,
-        developerURL: null,
-        dir: 'auto',
-        lang: 'en-US',
-        background: metadata.backgroundColor,
-        background_color: metadata.backgroundColor,
-        theme_color: metadata.themeColor,
-        display: 'standalone', // minimal-ui
-        orientation: 'any',
-        start_url: '/?homescreen=1',
-        version: metadata.websiteVersion,
-
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: true,
-          twitter: true,
-          yandex: false,
-          windows: false,
-        },
+        icon: './assets/favicon.png',
       },
     },
     // This plugin generates a service worker and AppShell

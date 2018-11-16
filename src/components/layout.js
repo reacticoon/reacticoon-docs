@@ -22,6 +22,9 @@ const styles = theme => ({
     //     paddingRight: theme.spacing.unit * 3
     // }
   },
+  indexFooterBar_root: {
+    // to be override by parent
+  },
 });
 
 const Layout = ({ children, classes }) => (
@@ -42,7 +45,10 @@ const Layout = ({ children, classes }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description,
+            },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
           ]}
         >
@@ -52,7 +58,7 @@ const Layout = ({ children, classes }) => (
 
         <div className={classes.root}>{children}</div>
 
-        <IndexFooterBar />
+        <IndexFooterBar classes={{ root: classes.indexFooterBar_root }} />
       </React.Fragment>
     )}
   />
