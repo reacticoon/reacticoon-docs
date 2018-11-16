@@ -18,8 +18,8 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         // TODO: The recommended size for the file is: 1500x1500px.
-        logo: "./assets/favicon.png",
-  
+        logo: './assets/favicon.png',
+
         // WebApp Manifest Configuration
         appName: null, // Inferred with your package.json
         appDescription: null,
@@ -33,7 +33,7 @@ module.exports = {
         orientation: 'any',
         start_url: '/?homescreen=1',
         version: '1.0',
-  
+
         icons: {
           android: true,
           appleIcon: true,
@@ -44,8 +44,8 @@ module.exports = {
           opengraph: false,
           twitter: false,
           yandex: false,
-          windows: false
-        }
+          windows: false,
+        },
       },
     },
     // read markdown files and parse them to be used as posts.
@@ -57,6 +57,14 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
+    // https://www.gatsbyjs.org/packages/gatsby-image/
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: path.join(__dirname, `src`, `images`),
+    //   },
+    // },
     // required by gatsby-image
     // https://www.npmjs.com/package/gatsby-image
     // Creates ImageSharp nodes from image types that are supported by the Sharp image processing
@@ -131,7 +139,8 @@ module.exports = {
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
-              rel: 'nofollow',
+              // https://developers.google.com/web/tools/lighthouse/audits/noopener
+              rel: 'noopener noreferrer',
             },
           },
           //
@@ -195,7 +204,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `${metadata.websiteUrl}`,
+        siteUrl: `${metadata.siteUrl}`,
       },
     },
     // This plugin takes your configuration and generates a web manifest file so our website can
@@ -243,6 +252,15 @@ module.exports = {
       options: {
         trackingId: metadata.analytics.trackingId,
       },
+    },
+    // robots.txt
+    // https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+    },
+    // https://www.npmjs.com/package/gatsby-plugin-sitemap
+    {
+      resolve: `gatsby-plugin-sitemap`,
     },
   ],
 };

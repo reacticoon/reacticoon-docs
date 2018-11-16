@@ -90,7 +90,7 @@ const styles = theme => ({
 const Header = ({ siteTitle, classes }) => (
     <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar classes={{ root: classes.toolbar }}>
-            <Typography variant="title" color="inherit">
+            <Typography variant="h6" color="inherit">
                 <Link to="/" className={classes.rootLink}>
                     <ReacticoonLogo height={50} />
                     {siteTitle}

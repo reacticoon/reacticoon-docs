@@ -17,7 +17,7 @@ const styles = theme => ({
 
 const MarkdownHeader = ({ title, classes }) => (
     <div className={classes.root}>
-        <Typography variant="display3" className={classes.title}>
+        <Typography variant="h2" className={classes.title}>
             {title}
         </Typography>
     </div>

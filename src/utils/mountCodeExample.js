@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // https://github.com/conorhastings/react-syntax-highlighter
-import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/prism';
 
-import { tomorrow } from 'react-syntax-highlighter/styles/prism';
+import { tomorrow } from 'react-syntax-highlighter/dist/styles/prism';
 
 const mountCodeExample = (containerId, code) => {
   const container = document.getElementById(containerId);

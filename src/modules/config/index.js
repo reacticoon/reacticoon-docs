@@ -9,7 +9,7 @@ import metadata from '../../../metadata';
 
 export const getWebsiteTitle = () => metadata.websiteName;
 
-export const getWebsiteUrl = () => metadata.websiteUrl;
+export const getSiteUrl = () => metadata.siteUrl;
 
 export const getWebsiteDescription = () => metadata.description;
 

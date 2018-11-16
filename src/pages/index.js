@@ -235,7 +235,7 @@ class IndexPage extends React.Component {
         <section className={classes.header}>
           <ReacticoonLogo height={200} />
 
-          <Typography className={classes.brand} variant="display3">
+          <Typography className={classes.brand} variant="h2">
             Reacticoon
           </Typography>
 

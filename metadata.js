@@ -1,12 +1,12 @@
 const metadata = {
     isProduction: process.env.NODE_ENV === 'production',
-    websiteUrl: 'https://reacticoon.io', // TODO:
+    siteUrl: 'https://reacticoon.netlify.com',
     websiteName: 'Reacticoon',
     websiteShortName: 'Reacticoon',
     githubUrl: 'https://github.com/reacticoon',
     githubRepositoryUrl: 'https://github.com/reacticoon/reacticoon-docs',
-    backgroundColor: '#f9f9f9', // TODO
-    themeColor: '#f44336',  // TODO
+    backgroundColor: '#f9f9f9', // TODO:
+    themeColor: '#f44336',  // TODO:
     ReacticoonGithubUrl: 'https://github.com/Reacticoon',
     twitterUsername: '', // TODO: twitter username, without the @
     analytics: {

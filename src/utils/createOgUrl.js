@@ -1,4 +1,4 @@
 import metadata from '../../metadata';
 
 export default slug =>
-    slug == null ? null : `${metadata.websiteUrl}/${slug.replace(/^\//, '')}`;
+    slug == null ? null : `${metadata.siteUrl}/${slug.replace(/^\//, '')}`;

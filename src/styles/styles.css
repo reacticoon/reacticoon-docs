@@ -21,6 +21,7 @@ div {
 body {
     background: #fafafa;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-display: auto; /* https://developers.google.com/web/updates/2016/02/font-display */
     font-size: 14px;
     color: rgba(0, 0, 0, 0.87);
 
