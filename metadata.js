@@ -8,8 +8,8 @@ const metadata = {
     websiteVersion: '1.0.0', // TODO: infer from package.json?
     githubUrl: 'https://github.com/reacticoon',
     githubRepositoryUrl: 'https://github.com/reacticoon/reacticoon-docs',
-    backgroundColor: '#f9f9f9', // TODO:
-    themeColor: '#f44336',  // TODO:
+    backgroundColor: '#f9f9f9',
+    themeColor: '#61dafb',
     ReacticoonGithubUrl: 'https://github.com/Reacticoon',
     twitterUsername: '', // TODO: twitter username, without the @
     analytics: {

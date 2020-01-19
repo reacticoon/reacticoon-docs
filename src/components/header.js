@@ -68,7 +68,7 @@ const styles = theme => ({
   },
   searchIcon: {
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9,
+      width: theme.spacing.unit * 8,
     },
     [theme.breakpoints.down('sm')]: {
       width: theme.spacing.unit * 4,
@@ -91,7 +91,7 @@ const styles = theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: theme.spacing.unit * 10,
+      paddingLeft: theme.spacing.unit * 7,
       width: 120,
       '&:focus': {
         width: 200,

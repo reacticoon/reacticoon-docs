@@ -25,4 +25,4 @@ export const getTwitterUrl = () =>
   `https://twitter.com/${getTwitterUsername()}`;
 
 export const generateDocGithubFileUrl = path =>
-  `${getGithubRepositoryUrl()}/blob/master/content/${path}`;
+  `${getGithubRepositoryUrl()}/edit/master/content/${path}`;

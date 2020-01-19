@@ -17,15 +17,13 @@ Under the hood, we use [`create-react-app`](https://github.com/facebook/create-r
 
 From the `create-react-app` documentation, the philosophy is:
 
-```text
 - One Dependency: There is just one build dependency. It uses Webpack, Babel, ESLint,
-and other amazing projects, but provides a cohesive curated experience on top of them.
+  and other amazing projects, but provides a cohesive curated experience on top of them.
 - You don't need to configure anything. Reasonably good configuration of both development
-and production builds is handled for you so you can focus on writing code.
+  and production builds is handled for you so you can focus on writing code.
 - No Lock-In: You can “eject” to a custom setup at any time. Run a single command, and all the
-configuration and build dependencies will be moved directly into your project, so you can pick
-up right where you left off.
-```
+  configuration and build dependencies will be moved directly into your project, so you can pick
+  up right where you left off.
 
 When you use `create-react-app` and wants to add additionnal build configuration, you have to
 `eject` or create a fork.

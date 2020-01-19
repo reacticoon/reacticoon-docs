@@ -198,12 +198,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     // Sets up google analytics
     // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-analytics/README.md
-    {
+    metadata.analytics.trackingId ? {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: metadata.analytics.trackingId,
       },
-    },
+    } : null,
     // robots.txt
     // https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/
     {
@@ -217,5 +217,5 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet`,
     },
-  ],
+  ].filter(Boolean),
 };

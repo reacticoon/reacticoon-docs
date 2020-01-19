@@ -10,7 +10,9 @@ This page is an overview of the Reacticoon ecosystem documentation and related r
 
 _Reacticoon_ is a JavaScript ecosystem for React and Redux.
 
-## Solution 1 - as local package (prefered way)
+## Installation
+
+### Solution 1 - as local package (prefered way)
 
 `yarn add --dev create-reacticoon-app`
 
@@ -18,7 +20,7 @@ By installing the create-reacticoon-app as a local package, you will be sure tha
 
 Note that when you install the package this way, you can't access to the `create-reacticoon-app` command. Here some solutions:
 
-### Use npx
+#### Use npx
 
 It requires npm npm@5.2.0 are above.
 
@@ -26,17 +28,17 @@ It requires npm npm@5.2.0 are above.
 
 You can learn more about npx on this [medium article](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 
-### Add an alias
+#### Add an alias
 
 In your shell configuration (~/.bashrc, ~/.zshrc), add an alias:
 
 `alias create-reacticoon-app="./node_modules/.bin/create-reacticoon-app"`
 
-### Use the real path
+#### Use the real path
 
 `./node_modules/.bin/create-reacticoon-app ...`
 
-## Solution 2 - as a global package
+### Solution 2 - as a global package
 
 `yarn add -g create-reacticoon-app`
 

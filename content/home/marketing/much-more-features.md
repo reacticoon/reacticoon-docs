@@ -1,5 +1,5 @@
 ---
-title: An much more feature
+title: And much more features
 order: 2
 ---
 
