@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   root: {
     [theme.breakpoints.up('sm')]: {
-      marginTop: theme.spacing.unit * 10,
+      marginTop: theme.spacing.unit * 8,
     },
     [theme.breakpoints.down('sm')]: {
         marginTop: theme.spacing.unit * 4,
@@ -15,12 +15,13 @@ const styles = theme => ({
   title: {
     color: '#282c34',
     fontWeight: 700,
+    fontSize: 32,
   },
 });
 
 const MarkdownHeader = ({ title, classes }) => (
   <div className={classes.root}>
-    <Typography variant="h2" className={classes.title}>
+    <Typography variant="h1" className={classes.title}>
       {title}
     </Typography>
   </div>

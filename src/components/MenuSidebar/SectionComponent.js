@@ -5,37 +5,42 @@ import isItemActive from 'utils/isItemActive';
 
 const styles = theme => ({
   root: {
-    position: 'fixed',
-    zIndex: '2',
-    height: 'calc(100vh - 60px)',
-    overflowY: 'auto',
-
-    backgroundColor: '#f7f7f7',
+    // backgroundColor: '#f7f7f7',
     opacity: '1 !important',
-
-    marginRight: '-999px',
-    paddingRight: '999px',
-
-    transition: 'opacity 0.5s ease',
+    display: 'block',
+    padding: '0',
+    paddingTop: theme.spacing.unit,
   },
   title: {
-    fontSize: '14px',
-    fontWeight: '700',
+    fontSize: '18px',
+    fontWeight: '500',
     lineHeight: '3',
     textTransform: 'uppercase',
     letterSpacing: '0.08em',
-    color: '#1a1a1a',
-    marginLeft: theme.spacing.unit * 4,
+    color: '#393939',
+    // marginLeft: theme.spacing.unit * 4,
   },
   itemsList: {
     listStyle: 'none',
     marginTop: 0,
+    paddingLeft: 0,
+    marginLeft: theme.spacing.unit / 2,
   },
-  subItemsList: {
-    marginLeft: 20,
-  },
+  subItemsList: {},
   item: {
     fontSize: 16,
+    padding: '4px 0',
+  },
+  itemLink_root: {
+    color: '#717171',
+    transition: 'color .3s',
+
+    '&:hover': {
+      color: 'black',
+    },
+  },
+  itemLink_active: {
+    color: 'black'
   },
   activatedSubItem: {
     width: '4px',
@@ -58,7 +63,7 @@ class SectionComponent extends React.Component {
       isScrollSync,
       location,
       onLinkClick,
-      onSectionTitleClick,
+      // onSectionTitleClick,
       section,
       classes,
     } = this.props;
@@ -66,23 +71,11 @@ class SectionComponent extends React.Component {
 
     return (
       <div className={classes.root}>
-        <button
-          aria-expanded={isActive}
-          aria-controls={uid}
-          style={{
-            cursor: 'pointer',
-            backgroundColor: 'transparent',
-            border: 0,
-            marginTop: 10,
-          }}
-          onClick={onSectionTitleClick}
-        >
-          <div className={classes.title}>
-            {section.title}
+        <div className={classes.title}>
+          {section.title}
 
-            {/* TODO: icon */}
-          </div>
-        </button>
+          {/* TODO: icon */}
+        </div>
 
         <ul id={uid} className={classes.itemsList}>
           {section.items.map((item, index) => (
@@ -101,6 +94,7 @@ class SectionComponent extends React.Component {
                   location,
                   onLinkClick,
                   section,
+                  classes: { root: classes.itemLink_root, active: classes.itemLink_active },
                 })}
 
                 {item.subitems && (

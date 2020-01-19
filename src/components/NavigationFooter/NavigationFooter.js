@@ -67,7 +67,7 @@ const NavigationFooter = ({ next, prev, location, classes }) => (
     <div className={classes.prevArea}>
       {prev && (
         <React.Fragment>
-          <div className={classes.secondaryLabel}>Previous article</div>
+          <div className={classes.secondaryLabel}>Previous</div>
           <div
             style={{
               paddingTop: 10,
@@ -88,7 +88,7 @@ const NavigationFooter = ({ next, prev, location, classes }) => (
     <div className={classes.nextArea}>
       {next && (
         <React.Fragment>
-          <div className={classes.secondaryLabel}>Next article</div>
+          <div className={classes.secondaryLabel}>Next</div>
           <div
             style={{
               paddingTop: 10,

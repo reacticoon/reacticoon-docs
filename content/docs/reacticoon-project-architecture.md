@@ -3,7 +3,7 @@ id: reacticoon-project-architecture
 title: Reacticoon project architecture
 permalink: docs/reacticoon-project-architecture.html
 prev: 'reacticoon-create-project'
-next: ''
+next: 'available-scripts'
 ---
 
 Reacticoon provides a project architecture designed for both small and large projects.

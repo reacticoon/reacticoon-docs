@@ -8,32 +8,65 @@ import { withStyles } from '@material-ui/core/styles';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
 import MarkdownHeader from 'components/MarkdownHeader';
 import NavigationFooter from 'components/NavigationFooter';
-import ExternalLink from 'components/ExternalLink';
+import ButtonExternalLink from 'components/ButtonExternalLink';
 
 const styles = theme => ({
   root: {
-    maxWidth: 1260,
-    [theme.breakpoints.up('md')]: {
-      width: '90%',
-    },
+    backgroundColor: 'white',
     paddingLeft: '20px',
     paddingRight: '20px',
     marginLeft: 'auto',
     marginRight: 'auto',
   },
   rootContent: {
-    display: 'flex',
-    minHeight: 'calc(100vh - 60px)',
+    maxWidth: '100%',
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      flexFlow: 'row nowrap',
+      display: 'flex',
+      flexGrow: '1',
+      minHeight: `calc(100vh - ${theme.app.header.height}px)`,
+    },
+    [theme.breakpoints.down('md')]: {
+      minHeight: `calc(100vh - ${theme.app.header.heightMobile}px)`,
+    },
   },
   content: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: '1',
-    flexShrink: '1',
-    flexBasis: 'auto',
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
+    [theme.breakpoints.up('md')]: {
+      flexBasis: '784px',
+      flexGrow: '0',
+      flex: '1 auto',
+      maxWidth: '100%',
+      minWidth: '0',
+    },
     paddingBottom: theme.spacing.unit * 4,
+  },
+  sidebar: {
+    [theme.breakpoints.up('md')]: {
+      flex: '1 0 240px',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      height: 'calc(100vh - 50px)',
+      position: 'sticky',
+      overflowY: 'auto',
+      top: '50px',
+      margin: `0 ${theme.spacing.unit * 4}px`,
+      marginLeft: 0,
+      paddingTop: theme.spacing.unit * 4,
+    },
+    [theme.breakpoints.down('sm')]: {
+      display: 'none', // TODO: display on mobile
+    },
+    [theme.breakpoints.down('xs')]: {},
+  },
+  toc: {
+    flex: '1 0 240px',
+    alignSelf: 'flex-start',
+    display: 'block',
+    maxHeight: 'calc(100vh - 90px)',
+    overflowY: 'auto',
+    position: 'sticky',
+    top: '90px',
   },
   markdownContent: {
     marginTop: theme.spacing.unit * 4,
@@ -145,37 +178,18 @@ const styles = theme => ({
     '& pre.language-md': {
       padding: theme.spacing.unit,
     },
-  },
-  sidebar: {
-    [theme.breakpoints.up('md')]: {
-      flex: '0 0 300px',
-      '-webkit-flex': '0 0 300px',
-      borderLeft: '1px solid #ececec',
-      marginLeft: '80px',
-    },
-    [theme.breakpoints.down('sm')]: {
-      flex: '0 0 300px',
-      '-webkit-flex': '0 0 300px',
-      borderLeft: '1px solid #ececec',
-      marginLeft: '80px',
-    },
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
+    '& code.language-text': {
+      backgroundColor: '#1b1f230d',
+      borderRadius: '3px',
+      color: 'inherit',
+      fontFamily:
+        'SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace',
+      fontSize: '85%',
+      margin: '0',
+      padding: '3.2px 6.4px',
     },
   },
-  footer: {
-    // Note: same as temapltes/docs.js#indexFooterBar_root style
-    maxWidth: 1260,
-    [theme.breakpoints.up('md')]: {
-      width: 'calc(100vw - 360px)', // minus sidebar menu HOC
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 'calc(100vw - 320px)', // minus sidebar menu HOC
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '100%', // we do not display sidebar
-    },
-  },
+  footer: {},
 });
 
 const getPageById = (sectionList, templateFile) => {
@@ -187,7 +201,13 @@ const getPageById = (sectionList, templateFile) => {
   const flattenedSectionItems = [].concat.apply([], sectionItems);
   const linkId = templateFile.replace('.html', '');
 
-  return flattenedSectionItems.find(item => item.id === linkId);
+  const page = flattenedSectionItems.find(item => item.id === linkId);
+
+  if (!page) {
+    console.warn(`${templateFile} file not found`)
+  }
+
+  return page
 };
 
 const MarkdownPage = ({
@@ -208,6 +228,17 @@ const MarkdownPage = ({
     <React.Fragment>
       <div className={classes.root}>
         <div className={classes.rootContent}>
+          <div className={classes.sidebar}>
+            <MenuSidebar
+              sectionList={sectionList}
+              createLink={createLink}
+              defaultActiveSection={findSectionForPath(
+                location.pathname,
+                sectionList
+              )}
+              location={location}
+            />
+          </div>
           <div className={classes.content}>
             <TitleAndMetaTags
               ogDescription={ogDescription}
@@ -226,24 +257,16 @@ const MarkdownPage = ({
 
             <div>
               <hr />
-              <ExternalLink
+              <br />
+              <ButtonExternalLink
                 href={generateDocGithubFileUrl(markdownRemark.fields.path)}
               >
                 Improve this documentation
-              </ExternalLink>
+              </ButtonExternalLink>
             </div>
           </div>
-          <div className={classes.sidebar}>
-            <MenuSidebar
-              sectionList={sectionList}
-              createLink={createLink}
-              defaultActiveSection={findSectionForPath(
-                location.pathname,
-                sectionList
-              )}
-              location={location}
-            />
-          </div>
+
+          <div className={classes.toc}>{/* TODO: */}</div>
         </div>
       </div>
 

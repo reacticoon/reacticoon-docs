@@ -9,3 +9,5 @@
         title: Create a new project
       - id: reacticoon-project-architecture
         title: Project architecture
+      - id: available-scripts
+        title: Available scripts
